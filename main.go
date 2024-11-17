@@ -138,14 +138,6 @@ func main() {
 
 	defer ses.Close()
 
-	cmds, err := ses.ApplicationCommands(ses.State.User.ID, GUILD_ID)
-	if err != nil {
-		log.Panicf("failed to get application command: %+v", err)
-	}
-	for _, c := range cmds {
-		log.Printf("id: %s, name: %s", c.ID, c.Name)
-	}
-
 	stop := make(chan os.Signal, 1)
 	signal.Notify(stop, os.Interrupt)
 	log.Println("Press Ctrl+C to exit")
