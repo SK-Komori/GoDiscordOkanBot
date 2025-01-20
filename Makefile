@@ -1,3 +1,4 @@
 .PHONY: run
 run:
-	eval $$(egrep -v '^#' .env | xargs) go run main.go 
+	docker compose up -d
+	eval $$(egrep -v '^#' .env | xargs) go run ./main.go 
